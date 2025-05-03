@@ -20,7 +20,8 @@ public class DuvidaManager {
         }
     }
 
-    public int getTotalByPlayer(Player p) {
+    public int getTotalAtivasByPlayer(Player p) {
         return duvidasAtivas.getOrDefault(p.getUniqueId(), new ArrayList<>()).size();
     }
+
 }

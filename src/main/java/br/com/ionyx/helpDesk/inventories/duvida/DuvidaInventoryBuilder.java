@@ -1,5 +1,6 @@
 package br.com.ionyx.helpDesk.inventories.duvida;
 
+import br.com.ionyx.helpDesk.manager.DuvidaManager;
 import br.com.ionyx.helpDesk.utils.ItemUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,13 +14,13 @@ import java.util.Arrays;
 
 public class DuvidaInventoryBuilder {
 
-    public static Inventory build(Player p) {
+    public static Inventory build(Player p, DuvidaManager manager) {
         Inventory inv = Bukkit.createInventory(null, 27, ChatColor.translateAlternateColorCodes('&', "&e&lDúvidas"));
 
         ItemStack playerHead = ItemUtils.getPlayerHead(p);
         ItemMeta metaHead = playerHead.getItemMeta();
-        metaHead.setLore(Arrays.asList("§aVocê tem §f0 §adúvidas pendentes",
-                ChatColor.translateAlternateColorCodes('&', "&aVocê gerou no total de &f0 &adúvidas até o momento.")));
+        metaHead.setLore(Arrays.asList(ChatColor.translateAlternateColorCodes('&', "&aVocê tem no total de &f" + manager.getTotalAtivasByPlayer(p) + " &adúvidas a serem respondidas."),
+                ChatColor.translateAlternateColorCodes('&', "&aVocê gerou no total de &f" + " &adúvidas até o momento.")));
 
         playerHead.setItemMeta(metaHead);
 
