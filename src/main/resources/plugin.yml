@@ -2,3 +2,8 @@ name: HelpDesk
 version: '1.0'
 main: br.com.ionyx.helpDesk.HelpDesk
 api-version: '1.21'
+commands:
+  duvidas:
+    description: Abre o menu de dúvidas
+    aliases: help
+    usage: /duvidas
